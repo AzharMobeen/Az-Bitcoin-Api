@@ -161,7 +161,7 @@ public class BitCoinService{
 	}
 	
 	private void displayResult(CurrencyRate currencyRate) {
-		if(currencyRate!=null) {
+		if(!currencyRate.isCurrencyNotFound()) {
 			String currencySymbol = CurrencyUtil.getCurrencySymbol(currencyRate.getCode());				
 			System.out.println("\n\n\tCurrent rate is :::: " + currencySymbol + " "  + currencyRate.getCurrentRate());
 			System.out.println(
