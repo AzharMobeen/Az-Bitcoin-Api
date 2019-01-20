@@ -16,7 +16,7 @@ import org.springframework.util.CollectionUtils;
 import org.springframework.web.client.RestTemplate;
 
 import com.az.bitcoin.domain.SupportedCurrency;
-import com.az.bitcoin.service.impl.BitCoinServiceImpl;
+import com.az.bitcoin.service.BitCoinService;
 
 /**
  * @author Azhar Mobeen
@@ -30,23 +30,24 @@ public class SupportedCurrencyComponent implements CommandLineRunner{
 	private RestTemplate restTemplate;
 	
 	@Autowired
-	private BitCoinServiceImpl bitCoinServiceImpl;
+	private BitCoinService bitCoinService;
 	
 	@Value("${supportedCurrencyUrl}")
-	private String supportedCurrencyUrl;
+	private String SUPPORTED_CURRENCY_URL;
 	
 	/*
 	 * It will run just after SpringBoot application and 
-	 * I will fetch supported currency list by CoinDesk Api
+	 * I will fetch supported currency list by CoinDesk Api once
+	 * and I will use this data for all user requests
 	 * */
-	public void run(String... args) throws Exception {
+	public void run(String... args){
 		List<SupportedCurrency> supportedCurrencyList = null;
 		ResponseEntity<List<SupportedCurrency>> currencyResponse = 
-				restTemplate.exchange(supportedCurrencyUrl,HttpMethod.GET,null,new ParameterizedTypeReference<List<SupportedCurrency>>() {
+				restTemplate.exchange(SUPPORTED_CURRENCY_URL,HttpMethod.GET,null,new ParameterizedTypeReference<List<SupportedCurrency>>() {
 		} );
 		supportedCurrencyList = currencyResponse.getBody();
 		if(!CollectionUtils.isEmpty(supportedCurrencyList))
-			bitCoinServiceImpl.setSupportedCurrencyList(supportedCurrencyList);
+			bitCoinService.setSupportedCurrencyList(supportedCurrencyList);
 		
 	}
 

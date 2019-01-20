@@ -4,7 +4,6 @@
 package com.az.bitcoin.domain;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -30,6 +29,14 @@ public class CurrencyRate implements Serializable{
 	private String description;
 	
 	@JsonProperty(value="rate_float")
-	@JsonDeserialize(as=BigDecimal.class)
-	private BigDecimal floatRate;
+	@JsonDeserialize(as=Double.class)
+	private Double currentRate;
+	
+	private String minRateDate;
+    private Double minRate;
+    private String maxRateDate;
+    private Double maxRate;
+    private String startDate;
+    private String endDate;
+    private boolean currencyNotFound;
 }

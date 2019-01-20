@@ -11,15 +11,15 @@ import java.time.LocalDate;
  * Jan 19, 2019
  */
 
-public enum DateUtil {
+public final class DateUtil {
 
-	INSTANCE;		
+	private DateUtil() {}
 	
 	/*
 	 * As per requirements end date should be current date
 	 * Default format YYYY-MM-DD Which CoinDesk Api required
 	 * */
-	public String getEndDate() {
+	public static String getEndDate() {
 		LocalDate endDate = LocalDate.now();				
 		return endDate.toString();
 				
@@ -29,7 +29,7 @@ public enum DateUtil {
 	 * As per requirements start date should be before 30 days from now
 	 * Default format YYYY-MM-DD Which CoinDesk Api required
 	 * */
-	public String getStartDate() {
+	public static String getStartDate() {
 		LocalDate startDate = LocalDate.now();
 		startDate = startDate.minusDays(30);
 		return startDate.toString();
