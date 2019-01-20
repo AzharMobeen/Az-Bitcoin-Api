@@ -4,8 +4,10 @@ It's a simple rest api in which I will consume CoinDesk Api and provide some fea
     https://www.coindesk.com/api
 
 **How to run**
-* mvn test (for test)
-* mvn clean install spring-boot:run OR java -jar target/Az-BitCoin-Api.jar
+* Api Test:
+    * mvn test
+* Api Run:
+    * mvn clean install spring-boot:run
 
 **How to use**
 * Enter any currency code e.g AED, USD, PKR
