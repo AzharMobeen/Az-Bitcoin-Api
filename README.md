@@ -1,5 +1,5 @@
 # Az-Bitcoin-Api
-It's a simple rest api in which I will consume CoinDesk Api and provide some features. 
+It's a simple rest api in which I will consume CoinDesk Api and display some results.
     
     https://www.coindesk.com/api
 
