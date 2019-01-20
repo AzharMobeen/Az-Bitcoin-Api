@@ -1,5 +1,7 @@
 # Az-Bitcoin-Api
-It's a simple rest api in which I will consume CoinDesk Api and provide some features.
+It's a simple rest api in which I will consume CoinDesk Api and provide some features. Actually it's a client api for 
+    
+    https://www.coindesk.com/api
 
 **How to run**
 * mvn test (for test)
